@@ -1,6 +1,6 @@
 <html>
 <body>
-<h1><center>Snacks List</center></h1>
+<h1>Snacks List</h1>
 <div class="container">
 
 <table class="table table-striped">
@@ -13,19 +13,28 @@
      <th> Stock Unit </th>
      <th> Qty </th>
      <th> Status </th>
+     <th> Update </th>
 
   </tr>
   <tr>
-  {% for member in members%}
-    <td> {{ member.id }} </td>
-    <td> {{ member.snackname }}</td>
-    <td> {{ member.snackbrand }}</td>
-    <td> {{ member.producer }}</td>
-    <td> {{ member.snackprice }}</td>
-    <td> {{ member.stockunit }}</td>
-    <td> {{ member.qty }}</td>
-    <td> {{ member.status }}</td>
-    <td> <a class="btn btn-info" href ="{%url 'update_member' member.id %}" >Update  </a> <td>
+  {% for snack in snacks %}
+    <td> {{ snack.id }} </td>
+    <td> {{ snack.snackname }}</td>
+    <td> {{ snack.snackbrand }}</td>
+    <td> {{ snack.producer }}</td>
+    <td> {{ snack.snackprice }}</td>
+    <td> {{ snack.stockunit }}</td>
+    <td> {{ snack.qty }}</td>
+    <td>
+        {% if snack.qty > 1 %}
+            available
+        {% else %}
+            reorder
+    {% endif %}
+    </td>
+    <td>
+    <a class="btn btn-info" href ="{%url 'update_snack' snack.id %}" >Update</a>
+    <td>
 
     </tr>
   {%endfor%}

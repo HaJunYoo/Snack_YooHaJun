@@ -5,10 +5,6 @@
 
 <form method="POST">
   {% csrf_token %}
-{#   The site generates a unique token when it makes the form page. #}
-{#    his token is required to post/get data back to the server.#}
-{#    {% csrf_token %}은 보안에 관련된 항목으로 form으로 전송한 데이터가 실제 웹 페이지에서 작성한 데이터인지를 판단하는 가늠자 역할#}
-{#    따라서 form 태그 바로 밑에 {% csrf_token %} 태그를 항상 위치#}
 
 <table>
 {{ form.as_table }}
@@ -17,17 +13,12 @@
   <button class="btn btn-default" type="submit">Save</button>
   <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
 
-{#Onclick” is a statement in Javascript to execute a function whenever an element (e.g., button) is clicked#}
-
 </form>
 
-  {% if member %}
-      <a class="btn btn-danger" href="{%url 'delete_snack' member.id %}">Delete</a>
+  {% if snack %}
+      <a class="btn btn-danger" href="{%url 'delete_snack' snack.id %}">Delete</a>
   {%endif%}
 
-{## creat -> blank -> cannot delete#}
-{#so member -> true -> button appear#}
-{#unique id will be not changed#}
 
 </div>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
