@@ -1,0 +1,41 @@
+<html>
+<body>
+<h1><center>Snacks List</center></h1>
+<div class="container">
+
+<table class="table table-striped">
+  <tr>
+     <th>ID </th>
+     <th>Snack name</th>
+     <th>Snack Brand</th>
+     <th>Producer</th>
+     <th>Snack Price</th>
+     <th> Stock Unit </th>
+     <th> Qty </th>
+     <th> Status </th>
+
+  </tr>
+  <tr>
+  {% for member in members%}
+    <td> {{ member.id }} </td>
+    <td> {{ member.snackname }}</td>
+    <td> {{ member.snackbrand }}</td>
+    <td> {{ member.producer }}</td>
+    <td> {{ member.snackprice }}</td>
+    <td> {{ member.stockunit }}</td>
+    <td> {{ member.qty }}</td>
+    <td> {{ member.status }}</td>
+    <td> <a class="btn btn-info" href ="{%url 'update_member' member.id %}" >Update  </a> <td>
+
+    </tr>
+  {%endfor%}
+</table>
+
+<a class="btn btn-info pull-right" href = "{%url 'add_snack' %}"> new product </a>
+{#we can use the statement "url" and write the address "name" as specified in the urls.py#}
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>
