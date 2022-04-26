@@ -4,7 +4,7 @@
 <form method="post">
   {% csrf_token %}
 {#    making form -> csrf token will be needed -> for the security #}
-  <h2> Are you sure to remove {{ member.snackname }}</h2>
+  <h2> Are you sure to remove {{ snack.snackname }}</h2>
   <button class="btn btn-danger" type="submit">Delete</button>
   <button onclick="window.history.back();" class="btn btn-default" type="button">Cancel</button>
 </form>

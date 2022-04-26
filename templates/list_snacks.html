@@ -1,5 +1,8 @@
 <html>
 <body>
+<style>
+h1 {text-align: center;}
+</style>
 <h1>Snacks List</h1>
 <div class="container">
 
@@ -14,9 +17,11 @@
      <th> Qty </th>
      <th> Status </th>
      <th> Update </th>
+     <th> Delete </th>
 
   </tr>
   <tr>
+
   {% for snack in snacks %}
     <td> {{ snack.id }} </td>
     <td> {{ snack.snackname }}</td>
@@ -34,7 +39,11 @@
     </td>
     <td>
     <a class="btn btn-info" href ="{%url 'update_snack' snack.id %}" >Update</a>
+    </td>
+
     <td>
+    <a class="btn btn-danger" href="{%url 'delete_snack' snack.id %}">Delete</a>
+    </td>
 
     </tr>
   {%endfor%}
