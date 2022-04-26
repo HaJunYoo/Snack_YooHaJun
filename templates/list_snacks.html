@@ -32,9 +32,9 @@ h1 {text-align: center;}
     <td> {{ snack.qty }}</td>
     <td>
         {% if snack.qty > 1 %}
-            available
+            <p style= "color : blue"> available </p>
         {% else %}
-            reorder
+           <p style= "color : red "> reorder </p>
     {% endif %}
     </td>
     <td>
